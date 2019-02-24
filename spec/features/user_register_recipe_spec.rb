@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'User register recipe' do
   scenario 'successfully' do
     #cria os dados necessários, nesse caso não vamos criar dados no banco
+    Cuisine.create(name: 'Arabe')
 
     # simula a ação do usuário
     visit root_path
@@ -10,7 +11,7 @@ feature 'User register recipe' do
 
     fill_in 'Título', with: 'Tabule'
     fill_in 'Tipo da Receita', with: 'Entrada'
-    fill_in 'Cozinha', with: 'Arabe'
+    select 'Arabe', from: 'Cozinha'
     fill_in 'Dificuldade', with: 'Fácil'
     fill_in 'Tempo de Preparo', with: '45'
     fill_in 'Ingredientes', with: 'Trigo para quibe, cebola, tomate picado, azeite, salsinha'
