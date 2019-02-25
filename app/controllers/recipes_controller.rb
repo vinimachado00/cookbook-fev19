@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.search(params[:search])
   end
 
   def show
@@ -38,6 +38,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :recipe_type, :cuisine_id, :difficulty,
-                                   :cook_time, :ingredients, :cook_method, :photo)
+                                   :cook_time, :ingredients, :cook_method, :photo,
+                                   :search)
   end
 end
