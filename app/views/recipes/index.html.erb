@@ -2,7 +2,7 @@
 <p>Bem-vindo ao maior livro de receitas online</p>
 
 <%= link_to 'Enviar uma receita', new_recipe_path %>
-<%= link_to 'Adicionar cozinha', new_cuisine_path %>
+<p><%= link_to 'Adicionar cozinha', new_cuisine_path %></p>
 
 <% @recipes.each do |recipe| %>
   <h1><%= link_to recipe.title, recipe %></h1>
@@ -12,4 +12,7 @@
     <li><%= recipe.difficulty %></li>
     <li><%= recipe.cook_time_min %></li>
   </ul>
+  <p><%= link_to 'Apagar Receita', recipe, method: :delete%></p>
+
 <% end %>
+
